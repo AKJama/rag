@@ -1,0 +1,27 @@
+# Override global gitignore which excludes scripts/ directories
+!scripts/
+!scripts/**
+
+# Environment
+/.env
+
+# Personal scratch notes
+/notes
+
+# Caches
+.cache/
+__pycache__/
+*.pyc
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Build
+/dist/
+/build/
+*.egg-info/
+
+# Editors
+.vscode
+.claude
+.windsurf

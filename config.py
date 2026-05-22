@@ -3,7 +3,7 @@ from pathlib import Path
 # Repo root is one level up from this file
 REPO_DIR = Path(__file__).resolve().parents[0]
 
-DATA_DIR = REPO_DIR / "data"
+DATA_DIR = REPO_DIR / "data" / "fiqa"
 
 # Model configurations
 MODEL_CONFIGS = {

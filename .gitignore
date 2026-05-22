@@ -25,3 +25,7 @@ __pycache__/
 .vscode
 .claude
 .windsurf
+
+# data
+data/*
+!/data/download_fiqa.py

@@ -1,8 +1,8 @@
 """
 
-Explore the FiQA-2018 benchmark: what the corpus looks like, what queries
+Explore the FiQA-2018 benchmark: what the corpus looks like and what queries
 
-look like, and what 'relevance' actually means in retrieval.
+look like.
 
 
 

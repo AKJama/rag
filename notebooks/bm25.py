@@ -21,6 +21,8 @@ from config import DATA_DIR, INDEX_DIR
 # Step 1: Load the corpus
 # --------------------------------------------------------------
 
+INDEX_DIR = INDEX_DIR / "bm25"
+
 # FiQA docs are forum posts; the 'title' column is empty for every row
 corpus = pd.read_parquet(DATA_DIR / "corpus.parquet")
 doc_ids = corpus["_id"].tolist()

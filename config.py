@@ -4,7 +4,7 @@ from pathlib import Path
 REPO_DIR = Path(__file__).resolve().parents[0]
 
 DATA_DIR = REPO_DIR / "data" / "fiqa"
-INDEX_DIR = REPO_DIR / "indexes" / "bm25"
+INDEX_DIR = REPO_DIR / "indexes"
 
 # Model configurations
 MODEL_CONFIGS = {

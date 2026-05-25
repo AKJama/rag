@@ -19,4 +19,4 @@ dependencies = [
 
 # ruff
 [tool.ruff]
-line-length = 130
+line-length = 120

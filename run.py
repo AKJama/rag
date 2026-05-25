@@ -7,10 +7,8 @@ Run this once before using any of the notebooks or evaluate.py.
 
 from datasets import load_dataset
 
-from config import DATA_DIR
+from config import FIQA_DIR
 from src.retrievers import BM25Retriever, DenseRetriever
-
-FIQA_DIR = DATA_DIR
 
 
 def download_data():

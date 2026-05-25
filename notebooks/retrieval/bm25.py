@@ -15,7 +15,7 @@ More info: https://github.com/xhluca/bm25s
 import bm25s
 import pandas as pd
 
-from config import DATA_DIR, INDEX_DIR
+from config import FIQA_DIR, INDEX_DIR
 
 # --------------------------------------------------------------
 # Step 1: Load the corpus
@@ -24,7 +24,7 @@ from config import DATA_DIR, INDEX_DIR
 INDEX_DIR = INDEX_DIR / "bm25"
 
 # FiQA docs are forum posts; the 'title' column is empty for every row
-corpus = pd.read_parquet(DATA_DIR / "corpus.parquet")
+corpus = pd.read_parquet(FIQA_DIR / "corpus.parquet")
 doc_ids = corpus["_id"].tolist()
 doc_texts = corpus["text"].tolist()
 
@@ -66,9 +66,7 @@ def search_bm25(query: str, k: int = 10) -> list[tuple[str, float]]:
     query_tokens = bm25s.tokenize([query], stopwords="en")
     indices, scores = retriever.retrieve(query_tokens, k=k)
     # indices[0] is a numpy array of integer positions in doc_ids.
-    return [
-        (doc_ids[i], float(scores[0][j])) for j, i in enumerate(indices[0].tolist())
-    ]
+    return [(doc_ids[i], float(scores[0][j])) for j, i in enumerate(indices[0].tolist())]
 
 
 if __name__ == "__main__":

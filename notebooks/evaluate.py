@@ -32,7 +32,7 @@ from tqdm import tqdm
 
 from src.fusion import hybrid_candidates
 from src.reranker import rerank_with_cohere
-from src.retrievers import DATA_DIR, BM25Retriever, DenseRetriever, load_corpus
+from src.retrievers import FIQA_DIR, BM25Retriever, DenseRetriever, load_corpus
 
 RERANK_SAMPLE_SIZE = 50
 SEED = 42
@@ -58,8 +58,8 @@ def ndcg_at_k(predicted_ids: list[str], relevant: dict[str, int], k: int = 10) -
 # Step 2: Load queries + ground truth, pick the sample
 # --------------------------------------------------------------
 
-queries = pd.read_parquet(DATA_DIR / "queries.parquet")
-qrels_df = pd.read_parquet(DATA_DIR / "qrels.parquet")
+queries = pd.read_parquet(FIQA_DIR / "queries.parquet")
+qrels_df = pd.read_parquet(FIQA_DIR / "qrels.parquet")
 
 qrels: dict[str, dict[str, int]] = defaultdict(dict)
 qrels = {

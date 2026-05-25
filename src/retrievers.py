@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from tqdm import tqdm
 
-from config import DATA_DIR, INDEX_DIR
+from config import FIQA_DIR, INDEX_DIR
 
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -23,7 +23,7 @@ EMBEDDING_MODEL = "text-embedding-3-small"
 
 
 def load_corpus() -> pd.DataFrame:
-    return pd.read_parquet(DATA_DIR / "corpus.parquet")
+    return pd.read_parquet(FIQA_DIR / "corpus.parquet")
 
 
 # --------------------------------------------------------------

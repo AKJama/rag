@@ -18,7 +18,7 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from tqdm import tqdm
 
-from config import DATA_DIR, INDEX_DIR
+from config import FIQA_DIR, INDEX_DIR
 
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -51,7 +51,7 @@ def build_index(doc_texts: list[str], batch_size: int = 256) -> np.ndarray:
 # Step 2: Build or load the cached embedding matrix
 # --------------------------------------------------------------
 
-corpus = pd.read_parquet(DATA_DIR / "corpus.parquet")
+corpus = pd.read_parquet(FIQA_DIR / "corpus.parquet")
 doc_ids = corpus["_id"].tolist()
 
 # OpenAI rejects empty strings in the embeddings endpoint. ~38 FiQA docs have
@@ -69,9 +69,7 @@ else:
     np.save(embeddings_path, doc_embeddings)
 
 # Pre-normalize once so cosine similarity becomes a single dot product later.
-doc_embeddings_normed = doc_embeddings / np.linalg.norm(
-    doc_embeddings, axis=1, keepdims=True
-)
+doc_embeddings_normed = doc_embeddings / np.linalg.norm(doc_embeddings, axis=1, keepdims=True)
 
 # --------------------------------------------------------------
 # Step 3: Query by cosine similarity

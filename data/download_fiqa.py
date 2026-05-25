@@ -13,8 +13,8 @@ from pathlib import Path
 
 from datasets import load_dataset
 
-DATA_DIR = Path(__file__).parent / "fiqa"
-DATA_DIR.mkdir(exist_ok=True)
+FIQA_DIR = Path(__file__).parent / "fiqa"
+FIQA_DIR.mkdir(exist_ok=True)
 
 
 # --------------------------------------------------------------
@@ -35,12 +35,12 @@ qrels = load_dataset("BeIR/fiqa-qrels", split="test")
 # Step 2: Cache as parquet so the other files load instantly
 # --------------------------------------------------------------
 
-corpus.to_parquet(DATA_DIR / "corpus.parquet")
-queries.to_parquet(DATA_DIR / "queries.parquet")
-qrels.to_parquet(DATA_DIR / "qrels.parquet")
+corpus.to_parquet(FIQA_DIR / "corpus.parquet")
+queries.to_parquet(FIQA_DIR / "queries.parquet")
+qrels.to_parquet(FIQA_DIR / "qrels.parquet")
 
 
 if __name__ == "__main__":
-    print(f"Corpus:  {len(corpus):>6} docs    -> {DATA_DIR / 'corpus.parquet'}")
-    print(f"Queries: {len(queries):>6} queries -> {DATA_DIR / 'queries.parquet'}")
-    print(f"Qrels:   {len(qrels):>6} judgments -> {DATA_DIR / 'qrels.parquet'}")
+    print(f"Corpus:  {len(corpus):>6} docs    -> {FIQA_DIR / 'corpus.parquet'}")
+    print(f"Queries: {len(queries):>6} queries -> {FIQA_DIR / 'queries.parquet'}")
+    print(f"Qrels:   {len(qrels):>6} judgments -> {FIQA_DIR / 'qrels.parquet'}")

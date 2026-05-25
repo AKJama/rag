@@ -20,7 +20,7 @@ More info: https://github.com/beir-cellar/beir
 
 import pandas as pd
 
-from config import DATA_DIR
+from config import FIQA_DIR
 
 # --------------------------------------------------------------
 
@@ -29,17 +29,17 @@ from config import DATA_DIR
 # --------------------------------------------------------------
 
 
-corpus = pd.read_parquet(DATA_DIR / "corpus.parquet")
+corpus = pd.read_parquet(FIQA_DIR / "corpus.parquet")
 
 print(corpus["text"].iloc[0])
 
 
-queries = pd.read_parquet(DATA_DIR / "queries.parquet")
+queries = pd.read_parquet(FIQA_DIR / "queries.parquet")
 
 print(queries["text"].iloc[0])
 
 
-qrels = pd.read_parquet(DATA_DIR / "qrels.parquet")
+qrels = pd.read_parquet(FIQA_DIR / "qrels.parquet")
 
 print(qrels.iloc[0])
 

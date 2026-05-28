@@ -55,3 +55,10 @@ Run the ablation:
 ```bash
 uv run -m notebooks.agent.evaluate_agentic --n 30 --concurrency 5
 ```
+
+## Next Steps
+
+- **RAG + Agent pruning**: Run the best-case RAG pipeline (hybrid + rerank → 47% NDCG@10) to get top-k chunks, then have the agent only prune these chunks (no search tools). Tests whether the agent can improve RAG results by removing irrelevant chunks.
+- **Increase sample size**: Bump to N=50 queries for more statistically meaningful results.
+- **Parameter alignment**: Ensure RAG params in the agentic version match the retriever pipeline exactly (same k, fusion params, etc.) for apples-to-apples comparison.
+- **Cross-encoder latency**: The Cohere rerank step adds latency; the agent must wait for it to complete before reviewing chunks.

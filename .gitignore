@@ -30,3 +30,6 @@ __pycache__/
 data/*
 !/data/download_fiqa.py
 indexes/
+
+# Agentic eval run logs
+notebooks/agent/logs/
